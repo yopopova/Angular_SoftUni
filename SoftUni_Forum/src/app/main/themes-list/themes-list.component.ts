@@ -8,6 +8,7 @@ import { ApiService } from 'src/app/api.service';
 })
 export class ThemesListComponent implements OnInit {
 
+  // Make it private because we want ot use it only into the class and not into the HTML template
   constructor(private api: ApiService) {}
 
   ngOnInit(): void {
