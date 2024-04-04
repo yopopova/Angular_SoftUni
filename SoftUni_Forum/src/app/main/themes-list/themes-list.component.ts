@@ -6,6 +6,7 @@ import { ApiService } from 'src/app/api.service';
   templateUrl: './themes-list.component.html',
   styleUrls: ['./themes-list.component.css']
 })
+
 export class ThemesListComponent implements OnInit {
 
   // Make it private because we want ot use it only into the class and not into the HTML template
