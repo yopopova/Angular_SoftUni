@@ -98,7 +98,7 @@ blockquote p.author {
     text-align: right;
 }
 
-/* Layout */
+/* Layout Styling */
 
 body {
     margin: 0;
@@ -137,6 +137,42 @@ body {
     table tbody tr:nth-child(even) td {
         background: #CCC;
     }
+
+/* Global Styles */
+
+body {
+    max-width: 1366px;
+    margin: auto;
+    position: relative;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    padding-bottom: 4.5em;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+h2 {
+    text-align: center;
+    border-bottom: 1px dashed #999;
+}
+
+span {
+    font-weight: bold;
+}
+
+button {
+    background-color: #4ebced;
+    color: white;
+}
+
+button:hover {
+    cursor: pointer;
+}
 
 /* Media Queries */
 
