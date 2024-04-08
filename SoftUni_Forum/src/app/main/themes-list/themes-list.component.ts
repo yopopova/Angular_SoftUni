@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
+import { Theme } from 'src/app/types/theme';
 
 @Component({
   selector: 'app-themes-list',
@@ -8,6 +9,7 @@ import { ApiService } from 'src/app/api.service';
 })
 
 export class ThemesListComponent implements OnInit {
+  themes: Theme[] = [];
 
   // Make it private because we want ot use it only into the class and not into the HTML template
   constructor(private api: ApiService) {}
@@ -15,6 +17,7 @@ export class ThemesListComponent implements OnInit {
   ngOnInit(): void {
     this.api.getThemes().subscribe(themes => {
       console.log(themes);
+      this.themes = themes;
     });
   }
 }
