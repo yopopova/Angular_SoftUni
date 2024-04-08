@@ -10,6 +10,7 @@ import { Post } from 'src/app/types/post';
 
 export class PostsListComponent implements OnInit {
   posts: Post[] = [];
+  isLoading: boolean = true;
 
   constructor(private api: ApiService) {}
 
@@ -17,6 +18,10 @@ export class PostsListComponent implements OnInit {
     this.api.getPosts(5).subscribe(posts => {
       console.log(posts);
       this.posts = posts;
+
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 2000);
     });
   }
 }

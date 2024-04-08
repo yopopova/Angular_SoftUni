@@ -9,7 +9,8 @@ import { Theme } from 'src/app/types/theme';
 })
 
 export class ThemesListComponent implements OnInit {
-  themes: Theme[] = [];
+  themes: Theme[] | null = [];
+  isLoading: boolean = true;
 
   // Make it private because we want ot use it only into the class and not into the HTML template
   constructor(private api: ApiService) {}
@@ -18,6 +19,7 @@ export class ThemesListComponent implements OnInit {
     this.api.getThemes().subscribe(themes => {
       console.log(themes);
       this.themes = themes;
+      this.isLoading = false;
     });
   }
 }
