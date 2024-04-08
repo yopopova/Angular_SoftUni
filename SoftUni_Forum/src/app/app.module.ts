@@ -9,13 +9,15 @@ import { SharedModule } from './shared/shared.module';
 import { MainComponent } from './main/main.component';
 import { ThemesListComponent } from './main/themes-list/themes-list.component';
 import { PostsListComponent } from './main/posts-list/posts-list.component';
+import { PostItemComponent } from './main/posts-list/post-item/post-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     ThemesListComponent,
-    PostsListComponent
+    PostsListComponent,
+    PostItemComponent,
   ],
   imports: [
     BrowserModule,
