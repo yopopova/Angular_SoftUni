@@ -9,20 +9,24 @@ import { SharedModule } from './shared/shared.module';
 import { MainComponent } from './main/main.component';
 import { ThemesListComponent } from './main/themes-list/themes-list.component';
 import { PostsListComponent } from './main/posts-list/posts-list.component';
+import { HomeComponent } from './home/home.component';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     ThemesListComponent,
-    PostsListComponent
+    PostsListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
