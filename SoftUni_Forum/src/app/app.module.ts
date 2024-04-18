@@ -9,11 +9,13 @@ import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { UserModule } from './user/user.module';
 import { ThemeModule } from './theme/theme.module';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
