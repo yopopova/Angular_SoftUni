@@ -10,3 +10,10 @@ export interface User {
     updatedAt: string,
     __v: number
 }
+
+export interface userForAuth {
+    firstName: string,
+    email: string,
+    phoneNumber: string,
+    password: string,
+}
