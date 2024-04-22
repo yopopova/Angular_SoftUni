@@ -1,4 +1,7 @@
 /* theme list item */
+.theme-title {
+    margin-right: 10%;
+}
 
 .theme-container a {
     text-decoration: none;

@@ -1,11 +1,15 @@
 <main>
+    <!-- <app-welcome></app-welcome> -->
+
     <div *ngIf="isLoading">
         <app-loader></app-loader>
     </div>
 
     <div *ngIf="!isLoading" class="theme-title">
-        <!-- theme component  -->
 
+        <app-welcome [isLoggedIn]="isLoggedIn"></app-welcome>
+
+        <!-- theme component  -->
         <div *ngFor="let theme of themes" class="theme-container">
             <div class="theme-name-wrapper">
                 <div class="theme-name">
