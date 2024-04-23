@@ -18,6 +18,17 @@ export class ApiService {
     return this.http.get<Theme[]>(`${apiUrl}/themes`);
   }
 
+  getTheme(id: string) {
+    const { apiUrl } = environment;
+    this.http.get<Theme>(`${apiUrl}/themes/${id}`);
+  }
+
+  createTheme(themeName: string, postText: string) {
+    const { apiUrl } = environment;
+    const payload = { themeName, postText };
+    return this.http.post<Theme>(`${apiUrl}/themes`, payload);
+  }
+
   // We have limit to the posts we should show on the view.
   getPosts(limit?: number) {
     const { apiUrl } = environment;
