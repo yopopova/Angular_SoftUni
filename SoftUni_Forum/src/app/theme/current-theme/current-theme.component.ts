@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { Theme } from 'src/app/types/theme';
 
 @Component({
   selector: 'app-current-theme',
@@ -7,9 +9,17 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./current-theme.component.css']
 })
 export class CurrentThemeComponent implements OnInit {
-  constructor(private apiService: ApiService) {}
+  theme = {} as Theme;
+  constructor(private apiService: ApiService, private activeRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.apiService.getTheme('5fa64a9f2183ce1728ff371a');
+    this.activeRoute.params.subscribe((data) => {
+      const id = data['themeId'];
+
+      this.apiService.getTheme(id).subscribe((theme: Theme) => {
+        this.theme = theme;
+        console.log({ theme });
+      })
+    })
   }
 }
