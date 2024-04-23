@@ -16,4 +16,5 @@ export interface userForAuth {
     email: string,
     phoneNumber: string,
     password: string,
+    id: string
 }
