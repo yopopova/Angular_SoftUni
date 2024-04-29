@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { LoaderComponent } from './loader/loader.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { RouterModule } from '@angular/router';
+import { EmailDirective } from './validators/email.directive';
 
 
 @NgModule({
   declarations: [
     LoaderComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    EmailDirective
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     LoaderComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    EmailDirective
   ]
 })
 

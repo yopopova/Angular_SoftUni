@@ -10,7 +10,9 @@
                 <input type="email" name="email" id="email" placeholder="john.doe@gmail.com" 
                 ngModel 
                 #inputEmail="ngModel"
-                required>
+                required
+                [appEmail]="['hello', 'directive']"
+                >
             </p>
 
             <!-- To check the error message -->
