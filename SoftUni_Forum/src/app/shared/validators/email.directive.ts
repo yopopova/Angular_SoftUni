@@ -15,23 +15,21 @@ import { emailValidator } from '../utils/email-validator';
 
 export class EmailDirective implements Validator, OnChanges {
   @Input() appEmail: string[] = [];
+  validator: ValidatorFn = () => null;
 
   constructor() { }
 
-  validator: ValidatorFn = () => null;
-
-  validate(control: AbstractControl<any, any>): ValidationErrors | null {
-    console.log('control ', control);
-    
-    return null;
+  validate(control: AbstractControl<any, any>): ValidationErrors | null {    
+    return this.validator(control);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('changes', changes['appEmail']);
-    
+    // Here we receive the input data
     const {currentValue} = changes['appEmail'];
+    // console.log('changes', changes['appEmail']);
 
     if(currentValue?.length) {
+      // Give the data to 'emailValidator()' function
       this.validator = emailValidator(currentValue);
     }
   }
