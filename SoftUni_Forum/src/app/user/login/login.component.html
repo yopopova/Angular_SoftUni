@@ -1,4 +1,5 @@
 <div class="container">
+    <!-- Template-driven form example -->
     <form class="login" #form="ngForm" (ngSubmit)="login(form)">
 
         <fieldset>
@@ -11,32 +12,35 @@
                 ngModel 
                 #inputEmail="ngModel"
                 required
-                [appEmail]="['bg', 'com']"
+                [appEmail]="domains"
                 >
             </p>
 
             <!-- To check the error message -->
             <!-- {{ inputEmail.errors?.['required'] | json }} -->
 
+            <!-- Email errors -->
             <!-- '*ngIf="inputEmail.touched"' will show the message only if the field is touched  -->
             <ng-container *ngIf="inputEmail.touched">
                 <p class="error" *ngIf="inputEmail.errors?.['required']">Email is required!</p>
-
-                <!-- <p class="error">
-                    Email is not valid!
-                </p> -->
+                <p class="error" *ngIf="inputEmail.errors?.['emailValidator']">Email is not valid!</p>
             </ng-container>
 
             <p class="field field-icon">
                 <label for="password"><span><i class="fas fa-lock"></i></span></label>
-                <input type="password" name="password" id="password" placeholder="******" ngModel #inputPassword="ngModel">
+                <input type="password" name="password" id="password" placeholder="******" 
+                ngModel 
+                #inputPassword="ngModel"
+                required
+                minlength="5"
+                >
             </p>
-            <!-- <p class="error">
-                Password is required!
-            </p>
-            <p class="error">
-                Password must be at least 4 characters!
-            </p> -->
+
+            <!-- Password errors -->
+            <ng-container *ngIf="inputPassword.touched">
+                <p class="error" *ngIf="inputPassword.errors?.['required']">Password is required!</p>
+                <p class="error" *ngIf="inputPassword.errors?.['minlength']">Password must be at least 5 characters!</p>
+            </ng-container>
 
             <!-- The old way to make login -->
             <!-- <button (click)="login($event, inputEmail.value, inputPassword.value)">Login</button> -->
