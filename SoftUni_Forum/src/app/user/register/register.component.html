@@ -12,9 +12,12 @@
                 formControlName="username"
                 >
             </p>
-            <p class="error">
-                Username is required!
-            </p>
+
+            <!-- Username error handling -->
+            <ng-container *ngIf="form.get('username')?.touched">
+                <p class="error" *ngIf="form.get('username')?.errors?.['required']">Username is required!</p>
+                <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">Username must be at least 5 characters!</p>
+            </ng-container>
 
             <!-- email -->
             <p class="field field-icon">
@@ -54,7 +57,7 @@
                     Password is required!
                 </p>
                 <p class="error">
-                    Password must be at least 4 characters!
+                    Password must be at least 5 characters!
                 </p> -->
 
                 <!-- rePassword -->

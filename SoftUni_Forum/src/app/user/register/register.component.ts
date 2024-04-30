@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { EMAIL_DOMAINS } from 'src/app/constants';
+import { emailValidator } from 'src/app/shared/utils/email-validator';
 
 @Component({
   selector: 'app-register',
@@ -10,12 +12,12 @@ import { FormBuilder } from '@angular/forms';
 export class RegisterComponent {
   // fb comes from the constructor; 'form' goes to [formGroup]="form" into the template
   form = this.fb.group({
-    username: ['gosho'],
-    email: ['gosho@abv.bg'],
-    tel: ['123-123-123'],
+    username: ['', [Validators.required, Validators.minLength(5)]],
+    email: ['', [Validators.required, emailValidator(EMAIL_DOMAINS)]],
+    tel: [''],
     passGroup: this.fb.group({
-      password: ['123'],
-      rePassword: ['321321'],
+      password: ['', [Validators.required]],
+      rePassword: ['', [Validators.required]],
     })
   });
 
