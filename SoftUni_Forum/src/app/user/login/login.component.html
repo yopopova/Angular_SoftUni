@@ -44,7 +44,7 @@
 
             <!-- The old way to make login -->
             <!-- <button (click)="login($event, inputEmail.value, inputPassword.value)">Login</button> -->
-            <button>Login</button>
+            <button [disabled]="form.invalid" [style]="{ backgroundColor: form.invalid ? 'gray' : 'blue' }">Login</button>
 
             <p class="text-center">Have an account? <a routerLink="/register">Register</a></p>
         </fieldset>
