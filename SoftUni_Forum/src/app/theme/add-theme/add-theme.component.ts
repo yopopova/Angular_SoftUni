@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ApiService } from 'src/app/api.service';
+import { NgForm } from '@angular/forms';
+// import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-add-theme',
@@ -7,12 +8,22 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./add-theme.component.css']
 })
 export class AddThemeComponent {
-  constructor(private apiService: ApiService) {}
+  // constructor(private apiService: ApiService) {}
 
-  addTheme(ev: Event, themeName: string, postText: string) {
-    ev.preventDefault();
+  addTheme(form: NgForm) {
+    if(form.invalid) {
+      return;
+    }
 
-    // If we want ot see the data, we should '.subscribe()' and 'console.log' the data.
-    this.apiService.createTheme(themeName, postText);
+    console.log(form.value);
+    
   }
+
+  // The old way
+  // addTheme(ev: Event, themeName: string, postText: string) {
+  //   ev.preventDefault();
+
+  //   // If we want ot see the data, we should '.subscribe()' and 'console.log' the data.
+  //   this.apiService.createTheme(themeName, postText);
+  // }
 }

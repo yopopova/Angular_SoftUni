@@ -7,20 +7,22 @@ import { MainComponent } from './main/main.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { ThemesListComponent } from './themes-list/themes-list.component';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AddThemeComponent,
     CurrentThemeComponent,
-    PostsListComponent,
     ThemesListComponent,
+    PostsListComponent,
     MainComponent,
   ],
   imports: [
     CommonModule,
     ThemeRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ]
 })
 export class ThemeModule { }

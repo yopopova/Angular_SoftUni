@@ -19,8 +19,8 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     UserRoutingModule,
     RouterModule,
-    FormsModule,
     SharedModule,
+    FormsModule,
     ReactiveFormsModule,
   ]
 })
