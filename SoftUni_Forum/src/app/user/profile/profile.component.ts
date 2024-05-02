@@ -27,7 +27,16 @@ export class ProfileComponent {
 
   constructor(private fb: FormBuilder) {}
 
-  onEdit(): void {
-    this.showEditMode = true;
+  onToggle(): void {
+    this.showEditMode = !this.showEditMode;
+  }
+
+  saveProfileHandler(): void {
+    if (this.form.invalid) {
+      return;
+    }
+
+    this.profileDetails = this.form.value as ProfileDetails;
+    this.onToggle();
   }
 }

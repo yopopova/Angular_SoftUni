@@ -2,32 +2,33 @@
     <div class="profile"><img src="./../../../assets/profile.png" alt="default user">
         <h3>User Info:</h3>
 
+        <!-- READ-ONLY MODE -->
         <ng-container *ngIf="!showEditMode">
             <div class="flex">
                 <p>Username: </p>
-                <p>Johny</p>
+                <p>{{profileDetails.username}}</p>
             </div>
             <div class="flex">
                 <p>Email: </p>
-                <p>john.doe@gmail.com</p>
+                <p>{{profileDetails.email}}</p>
             </div>
             <div class="flex">
                 <p>Phone: </p>
-                <p>+359 885 888 888</p>
+                <p>+359 {{profileDetails.tel}}</p>
             </div>
-            <button class="edit-button" (click)="onEdit()">Edit</button>
+            <button class="edit-button" (click)="onToggle()">Edit</button>
         </ng-container>
 
+        <!-- EDIT MODE -->
         <ng-container *ngIf="showEditMode">
-
-            <form action="">
+            <form [formGroup]="form" (ngSubmit)="saveProfileHandler()"> 
                 <div class="flex">
                     <p>Username: </p>
-                    <input type="text" name="username" id="username" [value]="profileDetails.username">
+                    <input type="text" name="username" id="username" [value]="profileDetails.username" formControlName="username">
                 </div>
                 <div class="flex">
                     <p>Email: </p>
-                    <input type="email" name="email" id="email" [value]="profileDetails.email">
+                    <input type="email" name="email" id="email" [value]="profileDetails.email" formControlName="email">
                 </div>
                 <div class="flex">
                     <p>Phone: </p>
@@ -35,7 +36,7 @@
                         <select name="select-tel" id="select-tel" class="tel">
                             <option value="00359">+359</option>
                         </select>
-                        <input type="text" name="tel" id="tel" [value]="profileDetails.tel">
+                        <input type="text" name="tel" id="tel" [value]="profileDetails.tel" formControlName="tel">
                     </div>
                 </div>
                 <button class="red-button">Cancel</button>
