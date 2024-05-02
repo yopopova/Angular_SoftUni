@@ -26,10 +26,20 @@
                     <p>Username: </p>
                     <input type="text" name="username" id="username" [value]="profileDetails.username" formControlName="username">
                 </div>
+
+                <!-- Username error handling -->
+                <ng-container *ngIf="form.get('username')?.touched">
+                    <p class="error" *ngIf="form.get('username')?.errors?.['required']">Username is required!</p>
+                    <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">Username must be at least 5 characters!</p>
+                </ng-container>
+
                 <div class="flex">
                     <p>Email: </p>
                     <input type="email" name="email" id="email" [value]="profileDetails.email" formControlName="email">
                 </div>
+
+                
+
                 <div class="flex">
                     <p>Phone: </p>
                     <div>
