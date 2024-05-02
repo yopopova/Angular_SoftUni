@@ -23,11 +23,11 @@
             <form action="">
                 <div class="flex">
                     <p>Username: </p>
-                    <input type="text" name="username" id="username" value="Johny">
+                    <input type="text" name="username" id="username" [value]="profileDetails.username">
                 </div>
                 <div class="flex">
                     <p>Email: </p>
-                    <input type="email" name="email" id="email" value="john.doe@gmail.com">
+                    <input type="email" name="email" id="email" [value]="profileDetails.email">
                 </div>
                 <div class="flex">
                     <p>Phone: </p>
@@ -35,7 +35,7 @@
                         <select name="select-tel" id="select-tel" class="tel">
                             <option value="00359">+359</option>
                         </select>
-                        <input type="text" name="tel" id="tel" value="885 888 888">
+                        <input type="text" name="tel" id="tel" [value]="profileDetails.tel">
                     </div>
                 </div>
                 <button class="red-button">Cancel</button>
