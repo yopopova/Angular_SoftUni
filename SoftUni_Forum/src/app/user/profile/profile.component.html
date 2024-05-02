@@ -38,7 +38,11 @@
                     <input type="email" name="email" id="email" [value]="profileDetails.email" formControlName="email">
                 </div>
 
-                
+                <!-- Email error handling -->
+                <ng-container *ngIf="form.get('email')?.touched">
+                    <p class="error" *ngIf="form.get('email')?.errors?.['required']">Email is required!</p>
+                    <p class="error" *ngIf="form.get('email')?.errors?.['emailValidator']">Email is not valid!</p>
+                </ng-container>
 
                 <div class="flex">
                     <p>Phone: </p>
