@@ -53,8 +53,10 @@
                         <input type="text" name="tel" id="tel" [value]="profileDetails.tel" formControlName="tel">
                     </div>
                 </div>
-                <button class="red-button">Cancel</button>
-                <button class="green-button">Save</button>
+                <button class="red-button" (click)="onCancel($event)">Cancel</button>
+                <button class="green-button"
+                [disabled]="form.invalid" [style]="{ backgroundColor: form.invalid ? 'gray' : 'green' }"
+                >Save</button>
             </form>
         </ng-container>
     </div>

@@ -39,4 +39,9 @@ export class ProfileComponent {
     this.profileDetails = this.form.value as ProfileDetails;
     this.onToggle();
   }
+
+  onCancel(ev: Event) {
+    ev.preventDefault();
+    this.onToggle();
+  }
 }
