@@ -1,14 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { UserForAuth } from '../types/user';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, tap } from 'rxjs';
+import { BehaviorSubject, Subscription, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class UserService {
-  // user$$ = subject
+export class UserService implements OnDestroy {
+  // user$$ = subject; the subject can act like observable and observer; we can access the subject only inside the class
   private user$$ = new BehaviorSubject<UserForAuth | undefined>(undefined);
   // user$ = observable
   private user$ = this.user$$.asObservable();
@@ -16,11 +16,17 @@ export class UserService {
   user: UserForAuth | undefined;
   USER_KEY = '[user]';
 
+  userSubscription: Subscription;
+
   get isLogged(): boolean {
     return !!this.user;
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.userSubscription = this.user$.subscribe(user => {
+      this.user = user;
+    })
+  }
 
   login(email: string, password: string) {
     return this.http.post<UserForAuth>('/api/login', { email, password }).pipe(
@@ -40,9 +46,13 @@ export class UserService {
 
   logout() {
     return this.http.post('/api/logout', {}).pipe(
-      tap((user) => {
+      tap(() => {
         this.user$$.next(undefined);
       })
     );
+  }
+
+  ngOnDestroy(): void {
+    this.userSubscription.unsubscribe();
   }
 }

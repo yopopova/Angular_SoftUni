@@ -14,7 +14,7 @@ class AppInterceptor implements HttpInterceptor {
         if (req.url.startsWith(this.API)) {
             req = req.clone({
                 url: req.url.replace(this.API, apiUrl),
-                withCredentials: true,
+                withCredentials: true, // This setting write the cookie in the browser.
             })
         }
 
