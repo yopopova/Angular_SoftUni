@@ -13,10 +13,10 @@ export interface User {
     __v: number
 }
 
-export interface userForAuth {
+export interface UserForAuth {
     firstName: string,
     email: string,
-    phoneNumber: string,
+    tel: string,
     password: string,
     id: string
 }

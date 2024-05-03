@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { userForAuth } from '../types/user';
+import { UserForAuth } from '../types/user';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class UserService {
-  user: userForAuth | undefined;
+  user: UserForAuth | undefined;
   USER_KEY = '[user]';
 
   get isLogged(): boolean {
@@ -25,7 +25,11 @@ export class UserService {
   }
 
   login(email: string, password: string) {
-    return this.http.post('/api/login', { email, password });
+    return this.http.post<UserForAuth>('/api/login', { email, password });
+  }
+
+  register(username: string, email: string, tel: string, password: string, rePassword: string) {
+    return this.http.post<UserForAuth>('/api/register', {username, email, tel, password, rePassword});
   }
 
   logout() {
