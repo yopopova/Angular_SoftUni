@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { userForAuth } from '../types/user';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class UserService {
     return !!this.user;
   }
 
-  constructor() {
+  constructor(private http: HttpClient) {
     try {
       const lsUser = localStorage.getItem(this.USER_KEY) || '';
       this.user = JSON.parse(lsUser);
@@ -23,16 +24,8 @@ export class UserService {
     }
   }
 
-  login() {
-    this.user = {
-      id: '5fa64c1f2183ce1728ff3723',
-      firstName: 'Petko',
-      email: 'petkoivanov@abv.bg',
-      phoneNumber: '123-123-123-123',
-      password: '123123'
-    }
-
-    localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
+  login(email: string, password: string) {
+    return this.http.post('/api/login', { email, password });
   }
 
   logout() {
