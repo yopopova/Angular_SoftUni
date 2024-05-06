@@ -9,7 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
 // import { UserModule } from './user/user.module';
 import { ThemeModule } from './theme/theme.module';
-import { ErrorComponent } from './error/error.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { appInterceptorProvider } from './app.interceptor';
 import { AuthenticationComponent } from './authentication/authentication.component';
 
@@ -18,7 +18,7 @@ import { AuthenticationComponent } from './authentication/authentication.compone
   declarations: [
     AppComponent,
     HomeComponent,
-    ErrorComponent,
+    NotFoundComponent,
     AuthenticationComponent,
   ],
   imports: [

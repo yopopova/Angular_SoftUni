@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { ErrorComponent } from './error/error.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 // With pathMatch: 'full' we check for white spases in the router
 // If we don't use 'redirectTo', our URL will be dirty; it won't be 404, but the thing we or someone write
@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'auth', loadChildren: () => import('./user/user.module').then(m => m.UserModule) }, // Lazy loading example; we remove the UserModule from AppModule to add it here
   { path: '**', redirectTo: '/404' },
-  { path: '404', component: ErrorComponent}
+  { path: '404', component: NotFoundComponent}
 ];
 
 @NgModule({
