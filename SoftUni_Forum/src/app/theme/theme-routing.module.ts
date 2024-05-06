@@ -5,6 +5,7 @@ import { AddThemeComponent } from "./add-theme/add-theme.component";
 import { CurrentThemeComponent } from "./current-theme/current-theme.component";
 import { AuthActivate } from "../guards/auth.activate";
 
+// With pathMatch: 'full' we check for white spases in the router
 const routes: Routes = [
     // Like this we add children routes to our theme module.
     { path: 'themes', children: [
