@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { ThemeModule } from './theme/theme.module';
 import { ErrorComponent } from './error/error.component';
 import { appInterceptorProvider } from './app.interceptor';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { appInterceptorProvider } from './app.interceptor';
     AppComponent,
     HomeComponent,
     ErrorComponent,
+    AuthenticationComponent,
   ],
   imports: [
     BrowserModule,

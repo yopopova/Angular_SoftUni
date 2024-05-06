@@ -1,0 +1,2 @@
+<app-loader *ngIf="isAuthenticating"></app-loader>
+<ng-content *ngIf="!isAuthenticating"><!-- This container is like wrapper, which handle other elements --></ng-content>
