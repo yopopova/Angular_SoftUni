@@ -27,7 +27,12 @@ export class ThemesListComponent implements OnInit {
   ngOnInit(): void {
     this.api.getThemes().subscribe(themes => {
       console.log(themes);
-      this.themes = themes;
+
+      // If we want to get some of the last added themes, we sould revert the array with data; and get the last 5 added
+      const sortDate = (a: { created_at: string }, b: { created_at: string }) => (new Date(b.created_at) as any) - (new Date(a.created_at) as any);
+      const temporaryThemes = themes.sort(sortDate as any).slice(0, 5);
+
+      this.themes = temporaryThemes;
       this.isLoading = false;
     });
   }
