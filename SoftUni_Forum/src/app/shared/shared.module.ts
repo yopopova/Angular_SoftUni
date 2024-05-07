@@ -5,6 +5,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { RouterModule } from '@angular/router';
 import { EmailDirective } from './validators/email.directive';
 import { SlicePipe } from './pipes/slice.pipe';
+import { ElapsedTimePipe } from './pipes/elapsed-time.pipe';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { SlicePipe } from './pipes/slice.pipe';
     WelcomeComponent,
     EmailDirective,
     SlicePipe,
+    ElapsedTimePipe,
   ],
   imports: [
     CommonModule,
@@ -23,6 +25,7 @@ import { SlicePipe } from './pipes/slice.pipe';
     WelcomeComponent,
     EmailDirective,
     SlicePipe,
+    ElapsedTimePipe,
   ]
 })
 
