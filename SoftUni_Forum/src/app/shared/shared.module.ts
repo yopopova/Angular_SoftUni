@@ -4,6 +4,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { RouterModule } from '@angular/router';
 import { EmailDirective } from './validators/email.directive';
+import { SlicePipe } from './pipes/slice.pipe';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { EmailDirective } from './validators/email.directive';
     LoaderComponent,
     WelcomeComponent,
     EmailDirective,
+    SlicePipe,
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { EmailDirective } from './validators/email.directive';
   exports: [
     LoaderComponent,
     WelcomeComponent,
-    EmailDirective
+    EmailDirective,
+    SlicePipe,
   ]
 })
 
