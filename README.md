@@ -18,3 +18,7 @@ The "Angular" course will give students knowledge and practical skills to build 
 ## Note
 
 Please keep in mind that if you want to use any of these materials after downloading the repository, you should run the `npm install` command into your VS Code terminal to generate the `node_modules` folder.
+
+## Certificate
+
+![Angular - October 2024 - Certificate](https://github.com/user-attachments/assets/357f7fd8-cfe3-4a5d-b08b-398e587d137c)
